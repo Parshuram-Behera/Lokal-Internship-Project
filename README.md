@@ -1,7 +1,7 @@
 # Lokal-Assignment
 A Project For Lokal Internship Assignment
 
-##Added Functionalities
+## Added Functionalities
 
 - **API FETCH Using Retrofit**
 - **Pagination** : For Page wise fetching data from api
