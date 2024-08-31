@@ -23,7 +23,7 @@ class JobViewModel : ViewModel() {
     fun fetchJobs(page: Int) {
         if (isLoading || isLastPage) return
         isLoading = true
-        updateLoadingState(true) // Show loading indicator
+        updateLoadingState(true)
 
         viewModelScope.launch {
             try {
@@ -36,10 +36,10 @@ class JobViewModel : ViewModel() {
                     _jobs.postValue(currentList + response.results)
                 }
             } catch (e: Exception) {
-                // Handle the error appropriately
+
             } finally {
                 isLoading = false
-                updateLoadingState(false) // Hide loading indicator
+                updateLoadingState(false)
             }
         }
     }
