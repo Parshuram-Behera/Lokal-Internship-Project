@@ -12,6 +12,9 @@ A Project For Lokal Internship Assignment
 As mentioned i have added them , i can make it further smootha and user friendly with time and more checks adding . 
 Limited time as said to focous on Functionality , so i did , can more beautify the UI . 
 
+## Screenshots
 
+
+## App Demo
 
 
