@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.parshurambehera.lokalassignment.models.JobResult
 
-class JobAdapter : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
+class JobAdapter(private val onJobClicked: (JobResult) -> Unit) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
     private val jobList = mutableListOf<JobResult?>()
     private var isLoadingAdded = false
@@ -18,8 +18,7 @@ class JobAdapter : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
         return if (viewType == VIEW_TYPE_LOADING) {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
             JobViewHolder.LoadingViewHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_job, parent, false)
@@ -30,6 +29,10 @@ class JobAdapter : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         if (holder is JobViewHolder.JobItemViewHolder) {
             holder.bind(jobList[position]!!)
+        }
+
+        holder.itemView.setOnClickListener {
+            onJobClicked(jobList[position]!!)
         }
     }
 
@@ -54,7 +57,7 @@ class JobAdapter : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
             isLoadingAdded = false
             val position = jobList.indexOf(null)
             if (position >= 0) {
-                jobList.removeAt(position) // Remove the null item
+                jobList.removeAt(position)
                 notifyItemRemoved(position)
             }
         }
@@ -68,12 +71,15 @@ class JobAdapter : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
             private val phoneTextView: TextView = itemView.findViewById(R.id.phoneTextView)
 
             fun bind(job: JobResult) {
-                titleTextView.text = job.title ?: "Unknown title"
-//                locationTextView.text = job.locations?.firstOrNull()?.locale ?: "Unknown location"
-                locationTextView.text = job.primary_details?.Place ?: "Unknown place"
+                titleTextView.text = job.title
+                locationTextView.text = job.locations?.firstOrNull()?.locale ?: "Unknown location"
                 salaryTextView.text = "Salary: ${job.salary_min} - ${job.salary_max}"
                 phoneTextView.text = job.whatsapp_no ?: "No phone number"
+
+
+
             }
+
         }
 
         class LoadingViewHolder(itemView: View) : JobViewHolder(itemView)
