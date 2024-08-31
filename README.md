@@ -16,6 +16,7 @@ Limited time as said to focous on Functionality , so i did , can more beautify t
  <img src="https://github.com/user-attachments/assets/45e4acf5-46db-42d3-810c-fe1db488419e" width="250"/>
  <img src="https://github.com/user-attachments/assets/7ff27702-1320-4f3b-9d56-f922c8781e92" width="250"/>
  <img src="https://github.com/user-attachments/assets/1cc0d235-e199-41b6-b76f-654e0331c551" width="250"/>
+ <img src="https://github.com/user-attachments/assets/35c3d395-e7e4-4f4d-b692-14bb95526ad3" width="250"/>
 
 
 ## App Demo
