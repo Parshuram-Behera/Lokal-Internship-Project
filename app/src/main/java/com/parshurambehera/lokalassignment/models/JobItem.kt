@@ -1,8 +1,14 @@
 package com.parshurambehera.lokalassignment.models
 
+import android.os.Parcel
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelField
+
+
 data class JobItem(
     val results: List<JobResult>
 )
+
 
 data class JobResult(
     val advertiser: Int,
