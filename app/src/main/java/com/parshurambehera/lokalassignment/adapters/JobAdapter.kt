@@ -1,10 +1,11 @@
-package com.parshurambehera.lokalassignment
+package com.parshurambehera.lokalassignment.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.parshurambehera.lokalassignment.R
 import com.parshurambehera.lokalassignment.models.JobResult
 
 class JobAdapter(private val onJobClicked: (JobResult) -> Unit) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
@@ -47,7 +48,7 @@ class JobAdapter(private val onJobClicked: (JobResult) -> Unit) : RecyclerView.A
     fun addLoadingFooter() {
         if (!isLoadingAdded) {
             isLoadingAdded = true
-            jobList.add(null) // Add a null item to indicate loading
+            jobList.add(null)
             notifyItemInserted(jobList.size - 1)
         }
     }

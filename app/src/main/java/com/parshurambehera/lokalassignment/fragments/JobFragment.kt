@@ -6,15 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
-import com.parshurambehera.lokalassignment.JobAdapter
 import com.parshurambehera.lokalassignment.R
 import com.parshurambehera.lokalassignment.activities.JobDetailsActivity
+import com.parshurambehera.lokalassignment.adapters.JobAdapter
 import com.parshurambehera.lokalassignment.models.JobResult
 import com.parshurambehera.lokalassignment.viewModels.JobViewModel
 
@@ -59,7 +58,7 @@ class JobFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initial load
+
         viewModel.fetchJobs(1)
 
         //  pagination
@@ -83,14 +82,14 @@ class JobFragment : Fragment() {
         })
     }
 
-    private fun onJobItemClick(jobResult: JobResult){
+    private fun onJobItemClick(jobResult: JobResult) {
 
 
         val dataBundle = Bundle()
 
         dataBundle.putString("job", Gson().toJson(jobResult))
 
-        val intent = Intent(requireContext() , JobDetailsActivity::class.java)
+        val intent = Intent(requireContext(), JobDetailsActivity::class.java)
         intent.putExtra("dataBundle", dataBundle)
 
         startActivity(intent)

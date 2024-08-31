@@ -1,7 +1,6 @@
 package com.parshurambehera.lokalassignment.API
 
 import com.parshurambehera.lokalassignment.models.JobItem
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
